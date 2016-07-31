@@ -41,7 +41,6 @@ class LogisticModel(object):
             plt.plot(costs)
             plt.show()
 
-
     def forward(self, X):
         return sigmoid(X.dot(self.W) + self.b)
 
@@ -61,7 +60,6 @@ def main():
     X1 = np.repeat(X1, 9, axis=0)
     X = np.vstack([X0, X1])
     Y = np.array([0]*len(X0) + [1]*len(X1))
-
     # N, D = X.shape
     # print "N:", N
     # print "p(Y=0):", np.sum(Y == 0) / float(N), "p(Y=1):", np.sum(Y == 1) / float(N)
@@ -71,6 +69,5 @@ def main():
     model.score(X, Y)
     # scores = cross_val_score(model, X, Y, cv=5)
     # print "score mean:", np.mean(scores), "stdev:", np.std(scores)
-
 if __name__ == '__main__':
     main()
