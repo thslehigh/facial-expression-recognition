@@ -35,7 +35,6 @@ class LogisticModel(object):
                     if e < best_validation_error:
                         best_validation_error = e
         print "best_validation_error:", best_validation_error
-
         if show_fig:
             plt.plot(costs)
             plt.show()
