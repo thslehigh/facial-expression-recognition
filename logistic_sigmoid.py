@@ -26,7 +26,6 @@ class LogisticModel(object):
                 self.W -= learning_rate*(X.T.dot(pY - Y) + reg*self.W)
                 self.b -= learning_rate*((pY - Y).sum() + reg*self.b)
 
-                
                 if i % 20 == 0:
                     pYvalid = self.forward(Xvalid)
                     c = sigmoid_cost(Yvalid, pYvalid)
