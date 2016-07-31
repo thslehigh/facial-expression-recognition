@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 from util import getBinaryData, sigmoid, sigmoid_cost, error_rate
 
-
 class LogisticModel(object):
     def __init__(self):
         pass
@@ -50,11 +49,9 @@ class LogisticModel(object):
         pY = self.forward(X)
         return np.round(pY)
 
-
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
-
 
 def main():
     X, Y = getBinaryData()
