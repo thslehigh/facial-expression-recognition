@@ -52,7 +52,6 @@ class LogisticModel(object):
 
 def main():
     X, Y = getBinaryData()
-
     X0 = X[Y==0, :]
     X1 = X[Y==1, :]
     X1 = np.repeat(X1, 9, axis=0)
