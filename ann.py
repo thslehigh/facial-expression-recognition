@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from util import getData, softmax, cost2, y2indicator, error_rate, relu
 from sklearn.utils import shuffle
 
-
 class ANN(object):
     def __init__(self, M):
         self.M = M
@@ -53,7 +52,6 @@ class ANN(object):
             plt.plot(costs)
             plt.show()
 
-
     def forward(self, X):
         # Z = relu(X.dot(self.W1) + self.b1)
         Z = np.tanh(X.dot(self.W1) + self.b1)
@@ -66,7 +64,6 @@ class ANN(object):
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
-
 
 def main():
     X, Y = getData()
