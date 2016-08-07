@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from util import getData, softmax, cost, y2indicator, error_rate
 from sklearn.utils import shuffle
 
-
 class LogisticModel(object):
     def __init__(self):
         pass
@@ -45,7 +44,6 @@ class LogisticModel(object):
             plt.plot(costs)
             plt.show()
 
-
     def forward(self, X):
         return softmax(X.dot(self.W) + self.b)
 
@@ -56,7 +54,6 @@ class LogisticModel(object):
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
-
 
 def main():
     X, Y = getData()
