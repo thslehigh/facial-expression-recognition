@@ -56,11 +56,9 @@ class ANN(object):
         # Z = relu(X.dot(self.W1) + self.b1)
         Z = np.tanh(X.dot(self.W1) + self.b1)
         return softmax(Z.dot(self.W2) + self.b2), Z
-
     def predict(self, X):
         pY, _ = self.forward(X)
         return np.argmax(pY, axis=1)
-
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
