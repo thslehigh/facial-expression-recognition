@@ -54,11 +54,9 @@ class ANN(object):
         # Z = relu(X.dot(self.W1) + self.b1)
         Z = np.tanh(X.dot(self.W1) + self.b1)
         return sigmoid(Z.dot(self.W2) + self.b2), Z
-
     def predict(self, X):
         pY = self.forward(X)
         return np.round(pY)
-
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
