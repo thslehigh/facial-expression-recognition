@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from sklearn.utils import shuffle
 from util import getBinaryData, sigmoid, sigmoid_cost, error_rate, relu
 
-
 class ANN(object):
     def __init__(self, M):
         self.M = M
@@ -51,22 +50,18 @@ class ANN(object):
             plt.plot(costs)
             plt.show()
 
-
     def forward(self, X):
         # Z = relu(X.dot(self.W1) + self.b1)
         Z = np.tanh(X.dot(self.W1) + self.b1)
         return sigmoid(Z.dot(self.W2) + self.b2), Z
 
-
     def predict(self, X):
         pY = self.forward(X)
         return np.round(pY)
 
-
     def score(self, X, Y):
         prediction = self.predict(X)
         return 1 - error_rate(Y, prediction)
-
 
 def main():
     X, Y = getBinaryData()
