@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 from util import getData, getBinaryData, y2indicator, error_rate, init_weight_and_bias
 from sklearn.utils import shuffle
 
-
 class HiddenLayer(object):
     def __init__(self, M1, M2, an_id):
         self.id = an_id
@@ -17,7 +16,6 @@ class HiddenLayer(object):
 
     def forward(self, X):
         return tf.nn.relu(tf.matmul(X, self.W) + self.b)
-
 
 class ANN(object):
     def __init__(self, hidden_layer_sizes):
@@ -85,7 +83,6 @@ class ANN(object):
                         p = session.run(prediction, feed_dict={tfX: Xvalid, tfT: Yvalid})
                         e = error_rate(Yvalid_flat, p)
                         print "i:", i, "j:", j, "nb:", n_batches, "cost:", c, "error rate:", e
-        
         if show_fig:
             plt.plot(costs)
             plt.show()
@@ -99,7 +96,6 @@ class ANN(object):
     def predict(self, X):
         act = self.forward(X)
         return tf.argmax(act, 1)
-
 
 def main():
     X, Y = getData()
