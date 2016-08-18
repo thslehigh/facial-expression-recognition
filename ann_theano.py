@@ -2,10 +2,8 @@ import numpy as np
 import theano
 import theano.tensor as T
 import matplotlib.pyplot as plt
-
 from util import getData, getBinaryData, error_rate, relu, init_weight_and_bias
 from sklearn.utils import shuffle
-
 
 class HiddenLayer(object):
     def __init__(self, M1, M2, an_id):
@@ -19,7 +17,6 @@ class HiddenLayer(object):
 
     def forward(self, X):
         return relu(X.dot(self.W) + self.b)
-
 
 class ANN(object):
     def __init__(self, hidden_layer_sizes):
@@ -90,12 +87,10 @@ class ANN(object):
         # ] + [
         #     (dp, mu*dp - learning_rate*T.grad(cost, p)) for p, dp in zip(self.params, dparams)
         # ]
-
         train_op = theano.function(
             inputs=[thX, thY],
             updates=updates
         )
-
         n_batches = N / batch_sz
         costs = []
         for i in xrange(epochs):
@@ -111,7 +106,6 @@ class ANN(object):
                     costs.append(c)
                     e = error_rate(Yvalid, p)
                     print "i:", i, "j:", j, "nb:", n_batches, "cost:", c, "error rate:", e
-        
         if show_fig:
             plt.plot(costs)
             plt.show()
@@ -125,7 +119,6 @@ class ANN(object):
     def predict(self, X):
         pY = self.forward(X)
         return T.argmax(pY, axis=1)
-
 
 def main():
     X, Y = getData()
